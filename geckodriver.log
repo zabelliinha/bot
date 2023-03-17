@@ -1,0 +1,54 @@
+1679004064149	geckodriver	INFO	Listening on 127.0.0.1:51352
+1679004067212	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "513 ... 3" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\minec\\AppData\\Local\\Temp\\rust_mozprofileTkK41l"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679004070323	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1679004070341	Marionette	INFO	Listening on port 51365
+Read port: 51365
+WebDriver BiDi listening on ws://127.0.0.1:51353
+1679004071287	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\minec\\AppData\\Local\\Temp\\rust_mozprofileTkK41l\\search.json.mozlz4", (void 0)))
+console.error: ({})
+DevTools listening on ws://127.0.0.1:51353/devtools/browser/2d64c4bc-468a-4ce6-b06c-e23ef6ff3bca
+JavaScript error: resource://gre/modules/XULStore.jsm, line 58: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 58: Error: Can't find profile directory.
+1679004125138	geckodriver	INFO	Listening on 127.0.0.1:51425
+1679004128164	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "514 ... 6" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\minec\\AppData\\Local\\Temp\\rust_mozprofileRU50cg"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679004128850	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1679004128861	Marionette	INFO	Listening on port 51436
+Read port: 51436
+WebDriver BiDi listening on ws://127.0.0.1:51426
+1679004129107	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\minec\\AppData\\Local\\Temp\\rust_mozprofileRU50cg\\search.json.mozlz4", (void 0)))
+console.error: ({})
+DevTools listening on ws://127.0.0.1:51426/devtools/browser/bcbc966d-5e62-4a52-8fd5-5ace3656d17c
+console.error: (new TypeError("this._searchProviderInfo is null", "resource:///modules/SearchSERPTelemetry.sys.mjs", 468))
+JavaScript error: resource://gre/modules/XULStore.jsm, line 58: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 58: Error: Can't find profile directory.
+1679004387902	geckodriver	INFO	Listening on 127.0.0.1:51537
+1679004391130	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "515 ... 8" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\minec\\AppData\\Local\\Temp\\rust_mozprofileh8OwTe"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1679004392703	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1679004392714	Marionette	INFO	Listening on port 51545
+Read port: 51545
+WebDriver BiDi listening on ws://127.0.0.1:51538
+1679004392996	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\minec\\AppData\\Local\\Temp\\rust_mozprofileh8OwTe\\search.json.mozlz4", (void 0)))
+console.error: ({})
+DevTools listening on ws://127.0.0.1:51538/devtools/browser/ad604e1e-5abe-49b9-9745-b7cb20b73949
+console.error: (new TypeError("this._searchProviderInfo is null", "resource:///modules/SearchSERPTelemetry.sys.mjs", 468))
+JavaScript error: resource://gre/modules/XULStore.jsm, line 58: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 58: Error: Can't find profile directory.
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
