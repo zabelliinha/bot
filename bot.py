@@ -1,6 +1,6 @@
 from sqlite3 import Time
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from selenium.webdriver.common.by import By
 from bs4 import BeautifulSoup
 import time
@@ -14,8 +14,9 @@ win = 0
 ok = win
 loss = 0
 
-
-driver = webdriver.Chrome('/path/to/chromedriver')  
+options = FirefoxOptions()
+options.add_argument("--headless")
+driver = webdriver.Firefox(options=options)
 driver.get('https://blaze.com/pt/games/double')
 cores = []
 padraoGeral = True
