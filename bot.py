@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 import time
 from datetime import datetime
 import requests
+from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
 
 
@@ -14,9 +15,10 @@ win = 0
 ok = win
 loss = 0
 
-options = FirefoxOptions()
-options.add_argument("--headless")
-driver = webdriver.Firefox(options=options)
+
+
+binary = FirefoxBinary('F:\FirefoxPortable\Firefox.exe')
+driver = webdriver.Firefox()
 driver.get('https://blaze.com/pt/games/double')
 cores = []
 padraoGeral = True
