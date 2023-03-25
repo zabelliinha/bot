@@ -16,10 +16,10 @@ ok = win
 loss = 0
 
 
+options = FirefoxOptions()
+nav = webdriver.Firefox(options=options)
+nav.get('https://blaze.com/pt/games/double')
 
-binary = FirefoxBinary('F:\FirefoxPortable\Firefox.exe')
-driver = webdriver.Firefox()
-driver.get('https://blaze.com/pt/games/double')
 cores = []
 padraoGeral = True
 padrao1 = False
@@ -262,7 +262,7 @@ while True:
         resultado == False
         print("Resultado Enviado")
 
-    c = driver.page_source
+    c = nav.page_source
     soup = BeautifulSoup(c, 'html.parser')
     dat = soup.find('div', class_="time-left")
     if 'Blaze Girou' in dat.getText():
