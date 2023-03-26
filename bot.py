@@ -7,6 +7,9 @@ import time
 from datetime import datetime
 import requests
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
+from webdriver_manager.firefox import GeckoDriverManager
+
+
 
 
 
@@ -15,10 +18,10 @@ win = 0
 ok = win
 loss = 0
 
-
+driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
 options = FirefoxOptions()
-nav = webdriver.Firefox(options=options)
-nav.get('https://blaze.com/pt/games/double')
+driver = webdriver.Firefox(options=options)
+driver.get('https://blaze.com/pt/games/double')
 
 cores = []
 padraoGeral = True
@@ -262,7 +265,7 @@ while True:
         resultado == False
         print("Resultado Enviado")
 
-    c = nav.page_source
+    c = driver.page_source
     soup = BeautifulSoup(c, 'html.parser')
     dat = soup.find('div', class_="time-left")
     if 'Blaze Girou' in dat.getText():
