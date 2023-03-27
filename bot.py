@@ -19,7 +19,6 @@ loss = 0
 
 option = webdriver.ChromeOptions()
 option.add_argument("start-maximized")
-option.binary_location = 'C:\Program Files\Google\Chrome\Application\chrome.exe'
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()),options=option)
 driver.get('https://blaze.com/pt/games/double')
 cores = []
