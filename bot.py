@@ -9,13 +9,7 @@ from bs4 import BeautifulSoup
 import time
 from datetime import datetime
 import requests
-
-
-driver = webdriver.Chrome('C:\Program Files\Google\Chrome\Application\chrome.exe')
-option = webdriver.ChromeOptions()
-option.add_argument("start-maximized")
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()),options=option)
-driver.get('https://blaze.com/pt/games/double')
+from selenium.webdriver.chrome.service import Service
 
 
 assertividade = True
@@ -23,8 +17,11 @@ win = 0
 ok = win
 loss = 0
 
-
-
+option = webdriver.ChromeOptions()
+option.add_argument("start-maximized")
+option.binary_location = 'C:\Program Files\Google\Chrome\Application\chrome.exe'
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()),options=option)
+driver.get('https://blaze.com/pt/games/double')
 cores = []
 padraoGeral = True
 padrao1 = False
