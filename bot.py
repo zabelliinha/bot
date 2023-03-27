@@ -1,16 +1,21 @@
 from sqlite3 import Time
 from selenium import webdriver
-from selenium.webdriver.firefox.options import Options as FirefoxOptions
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from bs4 import BeautifulSoup
 import time
 from datetime import datetime
 import requests
-from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
-from webdriver_manager.firefox import GeckoDriverManager
 
 
+option = webdriver.ChromeOptions()
+option.add_argument("start-maximized")
 
+
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()),options=option)
+driver.get('https://blaze.com/pt/games/double')
 
 
 assertividade = True
@@ -18,10 +23,7 @@ win = 0
 ok = win
 loss = 0
 
-driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
-options = FirefoxOptions()
-driver = webdriver.Firefox(options=options)
-driver.get('https://blaze.com/pt/games/double')
+
 
 cores = []
 padraoGeral = True
