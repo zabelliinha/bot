@@ -4,21 +4,23 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from bs4 import BeautifulSoup
 import time
 from datetime import datetime
 import requests
-from selenium.webdriver.chrome.service import Service
+
 
 
 assertividade = True
 win = 0
-ok = win
+porcentagem = win
 loss = 0
 
 option = webdriver.ChromeOptions()
 option.add_argument("start-maximized")
+option.binary_location = 'C:\Program Files\Google\Chrome\Application\chrome.exe'
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()),options=option)
 driver.get('https://blaze.com/pt/games/double')
 cores = []
@@ -56,27 +58,26 @@ while True:
 
 #CALCULAR ASSSERTIVIDADE
     if assertividade == True:
-        if loss == 0:
-         ok = 100
-        elif win == 0:
-          ok = 0
-        elif loss and win == 1:
-         ok = 50
-        elif loss == 1:
-         ok = "calculando..."
-        elif loss >= 2:
-         ok = 100-(loss/win*100)
+        if loss >= 1:
+         porcentagem = 100-(loss/win*100)
         else:
           assertividade = False
+          
 
+#LOSS E WINS
     if padrao1 == True:
 
         # RESULTADO LOSS PADRAO 1
         if cores[:3] == ['🔴', '🔴', '🔴']:
             loss += 1
             print("Loss")
-            respresult = f"NÃO FOI DESSA VEZ ❌\n\n Placar | Win - {win} | Loss - {loss}| Acertos - {ok:,.2f}%"
-            del cores[:]
+            if loss >= 1:
+                respresult = f"NÃO FOI DESSA VEZ ❌\n\n Placar | Win - {win} | Loss - {loss}| Acertos - {round(float(porcentagem))}%"
+            if loss == 0:
+                respresult = f"NÃO FOI DESSA VEZ ❌\n\n Placar | Win - {win} | Loss - {loss}| Acertos - 'Calculando...'"
+            if loss == 1:
+                respresult = f"NÃO FOI DESSA VEZ ❌\n\n Placar | Win - {win} | Loss - {loss}| Acertos - 'Calculando...'"
+                del cores[:]
 
             resultado = True
             padraoGeral = True
@@ -87,7 +88,13 @@ while True:
       #RESULTADO WIN PADRÃO 1
         if cores[:1] == ['⚫️']:
             win += 1
-            respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - {ok:,.2f}%"
+            print("Win")
+            if win >=1:
+                respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - {round(float(porcentagem))}%"
+            if loss == 0:
+                respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - 'Calculando...'"
+            if loss == 1:
+                respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - 'Calculando...'"
             del cores[:]
 
             resultado = True
@@ -97,7 +104,13 @@ while True:
                
         if cores[:2] == ['🔴', '⚫️']:
             win += 1
-            respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - {ok:,.2f}%"
+            print("Win")
+            if win >=1:
+                respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - {round(float(porcentagem))}%"
+            if loss == 0:
+                respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - 'Calculando...'"
+            if loss == 1:
+                respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - 'Calculando...'"
             del cores[:]
 
             resultado = True
@@ -107,7 +120,13 @@ while True:
             
         if cores[:3] == ['🔴', '🔴', '⚫️']:
             win += 1
-            respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - {ok:,.2f}%"
+            print("Win")
+            if win >=1:
+                respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - {round(float(porcentagem))}%"
+            if loss == 0:
+                respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - 'Calculando...'"
+            if loss == 1:
+                respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - 'Calculando...'"
             del cores[:]
 
             resultado = True
@@ -123,8 +142,13 @@ while True:
         if cores[:3] == ['⚫️', '⚫️', '⚫️']:
             loss += 1
             print("Loss")
-            respresult = f"NÃO FOI DESSA VEZ ❌\n\n Placar | Win - {win} | Loss - {loss}| Acertos - {ok:,.2f}%"
-            del cores[:]
+            if loss >= 1:
+                respresult = f"NÃO FOI DESSA VEZ ❌\n\n Placar | Win - {win} | Loss - {loss}| Acertos - {round(float(porcentagem))}%"
+            if loss == 0:
+                respresult = f"NÃO FOI DESSA VEZ ❌\n\n Placar | Win - {win} | Loss - {loss}| Acertos - 'Calculando...'"
+            if loss == 1:
+                respresult = f"NÃO FOI DESSA VEZ ❌\n\n Placar | Win - {win} | Loss - {loss}| Acertos - 'Calculando...'"
+                del cores[:]
 
             resultado = True
             padrao2 = False
@@ -134,7 +158,13 @@ while True:
           # RESULTADO WIN PADRAO 2
         if cores[:1] == ['🔴']:
             win += 1
-            respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - {ok:,.2f}%"
+            print("Win")
+            if win >=1:
+                respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - {round(float(porcentagem))}%"
+            if loss == 0:
+                respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - 'Calculando...'"
+            if loss == 1:
+                respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - 'Calculando...'"
             del cores[:]
 
             resultado = True
@@ -144,7 +174,13 @@ while True:
 
         if cores[:2] == ['⚫️', '🔴']:
             win += 1
-            respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - {ok:,.2f}%"
+            print("Win")
+            if win >=1:
+                respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - {round(float(porcentagem))}%"
+            if loss == 0:
+                respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - 'Calculando...'"
+            if loss == 1:
+                respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - 'Calculando...'"
             del cores[:]
 
             resultado = True
@@ -154,7 +190,13 @@ while True:
 
         if cores[:3] == ['⚫️', '⚫️', '🔴']:
             win += 1
-            respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - {ok:,.2f}%"
+            print("Win")
+            if win >=1:
+                respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - {round(float(porcentagem))}%"
+            if loss == 0:
+                respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - 'Calculando...'"
+            if loss == 1:
+                respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - 'Calculando...'"
             del cores[:]
 
             resultado = True
@@ -169,8 +211,13 @@ while True:
         if cores[:3] == ['🔴', '🔴', '🔴']:
             loss += 1
             print("Loss")
-            respresult = f"NÃO FOI DESSA VEZ ❌\n\n Placar | Win - {win} | Loss - {loss}| Acertos - {ok:,.2f}%"
-            del cores[:]
+            if loss >= 1:
+                respresult = f"NÃO FOI DESSA VEZ ❌\n\n Placar | Win - {win} | Loss - {loss}| Acertos - {round(float(porcentagem))}%"
+            if loss == 0:
+                respresult = f"NÃO FOI DESSA VEZ ❌\n\n Placar | Win - {win} | Loss - {loss}| Acertos - 'Calculando...'"
+            if loss == 1:
+                respresult = f"NÃO FOI DESSA VEZ ❌\n\n Placar | Win - {win} | Loss - {loss}| Acertos - 'Calculando...'"
+                del cores[:]
 
             resultado = True
             padrao3 = False
@@ -180,7 +227,13 @@ while True:
           # RESULTADO WIN PADRAO 3
         if cores[:1] == ['⚫️']:
             win += 1
-            respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - {ok:,.2f}%"
+            print("Win")
+            if win >=1:
+                respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - {round(float(porcentagem))}%"
+            if loss == 0:
+                respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - 'Calculando...'"
+            if loss == 1:
+                respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - 'Calculando...'"
             del cores[:]
 
             resultado = True
@@ -190,7 +243,13 @@ while True:
 
         if cores[:2] == ['🔴', '⚫️']:
             win += 1
-            respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - {ok:,.2f}%"
+            print("Win")
+            if win >=1:
+                respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - {round(float(porcentagem))}%"
+            if loss == 0:
+                respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - 'Calculando...'"
+            if loss == 1:
+                respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - 'Calculando...'"
             del cores[:]
 
             resultado = True
@@ -200,7 +259,13 @@ while True:
 
         if cores[:3] == ['🔴', '🔴', '⚫️']:
             win += 1
-            respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - {ok:,.2f}%"
+            print("Win")
+            if win >=1:
+                respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - {round(float(porcentagem))}%"
+            if loss == 0:
+                respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - 'Calculando...'"
+            if loss == 1:
+                respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - 'Calculando...'"
             del cores[:]
 
             resultado = True
@@ -216,18 +281,30 @@ while True:
         if cores[:3] == ['⚫️', '⚫️', '⚫️']:
             print("Loss")
             loss += 1
-            respresult = f"NÃO FOI DESSA VEZ ❌\n\n Placar | Win - {win} | Loss - {loss}| Acertos - {ok:,.2f}%"
+            if loss >= 1:
+                respresult = f"NÃO FOI DESSA VEZ ❌\n\n Placar | Win - {win} | Loss - {loss}| Acertos - {round(float(porcentagem))}%"
+            if loss == 0:
+                respresult = f"NÃO FOI DESSA VEZ ❌\n\n Placar | Win - {win} | Loss - {loss}| Acertos - 'Calculando...'"
+            if loss == 1:
+                respresult = f"NÃO FOI DESSA VEZ ❌\n\n Placar | Win - {win} | Loss - {loss}| Acertos - 'Calculando...'"
+            
+                del cores[:]
 
             resultado = True
             padraoGeral = True
-            del cores[:]
             padrao4 = False
             assertividade = True
 
           # RESULTADO WIN PADRAO 4
         if cores[:1] == ['🔴']:
             win += 1
-            respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - {ok:,.2f}%"
+            print("Win")
+            if win >=1:
+                respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - {round(float(porcentagem))}%"
+            if loss == 0:
+                respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - 'Calculando...'"
+            if loss == 1:
+                respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - 'Calculando...'"
             del cores[:]
 
             resultado = True
@@ -237,7 +314,13 @@ while True:
 
         if cores[:2] == ['⚫️', '🔴']:
             win += 1
-            respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - {ok:,.2f}%"
+            print("Win")
+            if win >=1:
+                respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - {round(float(porcentagem))}%"
+            if loss == 0:
+                respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - 'Calculando...'"
+            if loss == 1:
+                respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - 'Calculando...'"
             del cores[:]
 
             resultado = True
@@ -247,7 +330,13 @@ while True:
 
         if cores[:3] == ['⚫️', '⚫️', '🔴']:
             win += 1
-            respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}|  Acertos - {ok:,.2f}%"
+            print("Win")
+            if win >=1:
+                respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - {round(float(porcentagem))}%"
+            if loss == 0:
+                respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - 'Calculando...'"
+            if loss == 1:
+                respresult = f"DEU NICE 💚💚💚\n\n Placar | Win - {win} | Loss - {loss}| Acertos - 'Calculando...'"
             del cores[:]
 
             resultado = True
@@ -260,8 +349,7 @@ while True:
     if resultado == True:
         if respresult:
             sendMessage(respresult)
-        resultado == False
-        print("Resultado Enviado")
+            print("Resultado Enviado")
 
     c = driver.page_source
     soup = BeautifulSoup(c, 'html.parser')
@@ -278,39 +366,39 @@ while True:
         print(cores)
         
         site = "https://blaze.com/pt/games/double"
+        código_blaze = "https://blaze.com/pt/r/DqdyBx"
 
         if padraoGeral == True:
           
             if cores[:3] == ['⚫️', '🔴', '🔴']:
-                resp = f"🐉 ENTRADA CONFIRMADA 🐉 \n \n APÓS O: {numero_cor}  \n \n 🍀ENTRAR NO : ⚫\n\n❗PROTEGER NO BRANCO\n\n🏆NÚMERO DE GALES: ATÉ DOIS GALES\n\n Ir para blaze: {site}"
+                resp = f"🐉 ENTRADA CONFIRMADA 🐉 \n \n APÓS O: {numero_cor}  \n \n 🍀ENTRAR NO : ⚫\n\n❗PROTEGER NO BRANCO\n\n🏆NÚMERO DE GALES: ATÉ DOIS GALES\n\nIr para blaze: {site}\n\nGanhe rodadas grátis: {código_blaze}"
                 entrada = True
                 del cores[:]
                 padrao1 = True
                 padraoGeral = False
 
             if cores[:3] == ['🔴', '⚫️', '⚫️']:
-                resp = f"🐉 ENTRADA CONFIRMADA 🐉\n \n APÓS O: {numero_cor}  \n \n 🍀ENTRAR NO: 🔴\n\n❗PROTEGER NO BRANCO\n\n🏆NÚMERO DE GALES: ATÉ DOIS GALES\n\n Ir para blaze: {site}"
+                resp = f"🐉 ENTRADA CONFIRMADA 🐉\n \n APÓS O: {numero_cor}  \n \n 🍀ENTRAR NO: 🔴\n\n❗PROTEGER NO BRANCO\n\n🏆NÚMERO DE GALES: ATÉ DOIS GALES\n\nIr para blaze: {site}\n\nGanhe rodadas grátis: {código_blaze}"
                 entrada = True
                 del cores[:]
                 padrao2 = True
                 padraoGeral = False
 
             if cores[:3] == ['🔴', '🔴', '⚫️']:
-                resp = f"🐉 ENTRADA CONFIRMADA 🐉\n \n APÓS O: {numero_cor}  \n \n 🍀ENTRAR NO:  ⚫️\n\n❗PROTEGER NO BRANCO\n\n🏆NÚMERO DE GALES: ATÉ DOIS GALES\n\n Ir para blaze: {site}"
+                resp = f"🐉 ENTRADA CONFIRMADA 🐉\n \n APÓS O: {numero_cor}  \n \n 🍀ENTRAR NO:  ⚫️\n\n❗PROTEGER NO BRANCO\n\n🏆NÚMERO DE GALES: ATÉ DOIS GALES\n\nIr para blaze: {site}\n\nGanhe rodadas grátis: {código_blaze}"
                 entrada = True
                 del cores[:]
                 padrao3 = True
                 padraoGeral = False
 
             if cores[:3] == ['⚫️', '⚫️', '🔴']:
-                resp = f"🐉 ENTRADA CONFIRMADA 🐉\n \n APÓS O: {numero_cor}  \n \n 🍀ENTRAR NO: 🔴\n\❗PROTEGER NO BRANCO\n\n🏆NÚMERO DE GALES: ATÉ DOIS GALES\n\n Ir para blaze: {site}"
+                resp = f"🐉 ENTRADA CONFIRMADA 🐉\n \n APÓS O: {numero_cor}  \n \n 🍀ENTRAR NO: 🔴\n\n❗PROTEGER NO BRANCO\n\n🏆NÚMERO DE GALES: ATÉ DOIS GALES\n\nIr para blaze: {site}\n\nGanhe rodadas grátis: {código_blaze}"
                 entrada = True
                 del cores[:]
                 padrao4 = True
                 padraoGeral = False
-             
-             
-             #deleta cores do terminal
+            
+        #deleta cores do terminal
              
         if cores[:4] == ['⚫️', '⚫️', '⚫️', '⚫️']:
             del cores[:]
@@ -401,8 +489,8 @@ while True:
         if entrada == True:
             if resp:
                 sendMessage(resp)
-            entrada == False
-            print("Entrada Enviada")
+                print("Entrada Enviada")
 
-    time.sleep(2)
+    time.sleep(1.5)
+    
     
