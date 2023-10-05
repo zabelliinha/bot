@@ -33,8 +33,8 @@ padrao5 = False
 padrao6 = False
 
 
-I_TOKEN = "6011899650:AAFOi2kEyapa3uzlHQg05HnnJATT7jO35v4"
-I_CHAT_GRUPO = "-1001654815114"
+I_TOKEN = ""
+I_CHAT_GRUPO = ""
 MSG = "✅ ᴏ ʀᴏʙᴏᴢɪɴʜᴏ ᴍᴀɪs ʟᴇɢᴀʟ ᴅᴏ ᴘʟᴀɴᴇᴛᴀ!✅"
 I_URL = "https://api.telegram.org/bot" + I_TOKEN + \
     "/sendMessage" + "?chat_id=" + I_CHAT_GRUPO + "&text=" + MSG
@@ -42,8 +42,8 @@ I_RESUL = requests.get(I_URL)
 
 
 def sendMessage(text):
-    token = "6011899650:AAFOi2kEyapa3uzlHQg05HnnJATT7jO35v4"
-    chat_id = "-1001654815114"
+    token = ""
+    chat_id = ""
     url_req = "https://api.telegram.org/bot" + token + \
         "/sendMessage" + "?chat_id=" + chat_id + "&text=" + text
     results = requests.get(url_req)
